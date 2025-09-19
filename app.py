@@ -16,7 +16,7 @@ app.secret_key = os.getenv("FLASK_SECRET_KEY", "dev-secret")  # cambia en prod
 # --- Google Sheets client ---
 gc = gspread.service_account(filename=CREDS_PATH)
 sh = gc.open_by_key(os.getenv("SHEET_ID"))
-#ws = sh.sheet1  # o sh.worksheet("tareas") si prefieres una con nombre
+ws = sh.sheet1  # o sh.worksheet("tareas") si prefieres una con nombre
 
 def row_to_task(row):
     """Convierte una fila [id, titulo, estado, creado] en dict seguro."""
